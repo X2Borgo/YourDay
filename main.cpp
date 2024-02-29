@@ -37,7 +37,7 @@ class Attivita
 
 struct lista_attivita
 {
-    Attivita a;
+    Attivita attivita;
     struct lista_attivita *a_next = NULL;
 };
 
@@ -55,11 +55,47 @@ class Registro
 
         lista_attivita ricerca_nome(string nome)
         {
+            lista_attivita *a = &a0;
             do
             {
-
-            }while(a0.a_next )
+                if(a.attivita.get_nome() == nome)
+                {
+                    return a;
+                }
+            }while(a.a_next != NULL);
+            return NULL;
         } 
+
+        /*
+        modificare o creare nuove funzioni di questa ricerca per le attività
+        che iniziano / finiscono prima o dopo una certa ora.
+        Fare una funzione che cerca le attività attualmente in corso.
+        */
+        lista_attivita ricerca_ora_inizio (int ora_inizio)
+        {
+            lista_attivita *a = &a0;
+            do
+            {
+                if(a.attivita.get_ora_inizio() == ora_inizio)
+                {
+                    return a;
+                }   
+            }while(a.a_next != NULL);
+            return NULL;
+        }
+
+        lista_attivita ricerca_ora_fine(int ora_fine)
+        {
+            lista_attivita *a = &a0;
+            do
+            {
+                if(a.attivita.get_ora_fine() == ora_fine)
+                {
+                    return a;
+                }
+            }while(a.a_next != NULL);
+            return NULL;
+        }
         /*
         menu a tendina per la ricerca
         ricerca:
