@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class attivita
+class Attivita
 {
     private:
         string nome;
@@ -37,6 +37,6 @@ class attivita
 int main()
 {
     //per grafica usare qt
-
+    Attivita a1;
     
 }
