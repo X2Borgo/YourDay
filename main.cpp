@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include "graphic.h"
 
 using namespace std;
 
@@ -127,11 +128,14 @@ int main()
 {
     //per grafica usare qt
     Attivita a1;
+        
+    //nuova_attivita(&a1);
     
-    nuova_attivita(&a1);
-
     cout << a1.get_nome() << " , " 
         << a1.get_descrizione() << " , "
         << a1.get_ora_inizio() << " , "
         << a1.get_ora_fine() << endl;
+
+    init_finestra();
+    
 }
