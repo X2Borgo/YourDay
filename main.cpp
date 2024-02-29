@@ -58,11 +58,12 @@ class Registro
             lista_attivita *a = &a0;
             do
             {
-                if(a.attivita.get_nome() == nome)
+                if((*a).attivita.get_nome() == nome)
                 {
-                    return a;
+                    return *a;
                 }
-            }while(a.a_next != NULL);
+                a = (*a)
+            }while((*a).a_next != NULL);
             return NULL;
         } 
 
