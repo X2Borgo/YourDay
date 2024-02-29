@@ -62,9 +62,8 @@ class Registro
                 {
                     return *a;
                 }
-                a = (*a)
+                a = (*a).a_next;
             }while((*a).a_next != NULL);
-            return NULL;
         } 
 
         /*
@@ -77,12 +76,11 @@ class Registro
             lista_attivita *a = &a0;
             do
             {
-                if(a.attivita.get_ora_inizio() == ora_inizio)
+                if((*a).attivita.get_ora_inizio() == ora_inizio)
                 {
-                    return a;
+                    return *a;
                 }   
-            }while(a.a_next != NULL);
-            return NULL;
+            }while((*a).a_next != NULL);
         }
 
         lista_attivita ricerca_ora_fine(int ora_fine)
@@ -90,12 +88,11 @@ class Registro
             lista_attivita *a = &a0;
             do
             {
-                if(a.attivita.get_ora_fine() == ora_fine)
+                if((*a).attivita.get_ora_fine() == ora_fine)
                 {
-                    return a;
+                    return *a;
                 }
-            }while(a.a_next != NULL);
-            return NULL;
+            }while((*a).a_next != NULL);
         }
         /*
         menu a tendina per la ricerca
@@ -107,24 +104,23 @@ class Registro
 
 };
 
-Attivita nuova_attivita ()
+void nuova_attivita (Attivita *a)
 {
-    Attivita a;
     string b;
     int c;
     cout << "inserire i dati della nuova attivita' " << endl;
     cout << "inserire il nome dell'attivita': ";
     cin >> b;
-    a.set_nome(b);
+    (*a).set_nome(b);
     cout << "inserire la descrizione dell'attivita': ";
     cin >> b;
+    (*a).set_descrizione(b);
     cout << "inserire l'ora di inizio dell'attivita': ";
     cin >> c;
-    a.set_ora_inizio(c);
+    (*a).set_ora_inizio(c);
     cout << "inserire l'ora di fine dell'attività': ";
     cin >> c;
-    a.set_ora_fine(c);
-    return a;
+    (*a).set_ora_fine(c);
 }
 
 int main()
@@ -132,5 +128,10 @@ int main()
     //per grafica usare qt
     Attivita a1;
     
+    nuova_attivita(&a1);
 
+    cout << a1.get_nome() << " , " 
+        << a1.get_descrizione() << " , "
+        << a1.get_ora_inizio() << " , "
+        << a1.get_ora_fine() << endl;
 }
